@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -22,10 +21,10 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -42,19 +41,23 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
--- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+vim.keymap.set("n", "<leader>cr", "<cmd>! cargo run<CR>");
+vim.keymap.set("n", "<leader>cb", "<cmd>! cargo build<CR>");
+vim.keymap.set("n", "<leader>ct", "<cmd>! cargo test<CR>");
+vim.keymap.set("n", "<leader>cc", "<cmd>! cargo check<CR>");
 
-print(string.match(vim.api.nvim_buf_get_name(0), "(.-)([^\\/]-%.?([^%.\\/]*))$"))
-print(string.match(vim.api.nvim_buf_get_name(0), "^.+/(.+)%..+"))
-require("run-matlab")
 vim.keymap.set("n", "<leader>ms", function()
-    return(
---    print("hello")
- "<cmd>! matlab -nodisplay -nosplash -r " .. '"openProject(' ..
- "'/home/claire/Documents/nmsm-core/Project.prj'); cd('" ..
-string.match(vim.api.nvim_buf_get_name(0), "(.-)([^\\/]-%.?([^%.\\/]*))$") ..
-    "'); " ..  string.match(vim.api.nvim_buf_get_name(0), "^.+/(.+)%..+").. '"<CR>'
-    )
-end, {expr = true}
+    return (
+        "<cmd>! matlab -nodisplay -nosplash -r " .. '"openProject(' ..
+        "'/home/claire/Documents/nmsm-core/Project.prj'); cd('" ..
+        string.match(vim.api.nvim_buf_get_name(0), "(.-)([^\\/]-%.?([^%.\\/]*))$") ..
+        "'); " .. string.match(vim.api.nvim_buf_get_name(0), "^.+/(.+)%..+") .. '"<CR>'
+        )
+end, { expr = true }
+)
+
+vim.keymap.set("", "<leader>sl", function()
+   vim.cmd("pyfile ~/.config/nvim/lua/theprimeagen/sympy2latex.py")
+end
 )
