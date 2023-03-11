@@ -112,7 +112,7 @@ _G.packer_plugins = {
   dracula = {
     loaded = true,
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/dracula",
-    url = "/home/claire/Documents/dracula.nvim"
+    url = "https://github.com/cvhammond/dracula.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -129,10 +129,15 @@ _G.packer_plugins = {
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["limelight.vim"] = {
+  ["himalaya-vim"] = {
     loaded = true,
-    path = "/home/claire/.local/share/nvim/site/pack/packer/start/limelight.vim",
-    url = "https://github.com/junegunn/limelight.vim"
+    path = "/home/claire/.local/share/nvim/site/pack/packer/start/himalaya-vim",
+    url = "https://git.sr.ht/~soywod/himalaya-vim"
+  },
+  ["hologram.nvim"] = {
+    loaded = true,
+    path = "/home/claire/.local/share/nvim/site/pack/packer/start/hologram.nvim",
+    url = "https://github.com/giusgad/hologram.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/claire/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -169,10 +179,10 @@ _G.packer_plugins = {
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  playground = {
+  ["pets.nvim"] = {
     loaded = true,
-    path = "/home/claire/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
+    path = "/home/claire/.local/share/nvim/site/pack/packer/start/pets.nvim",
+    url = "https://github.com/giusgad/pets.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -189,19 +199,40 @@ _G.packer_plugins = {
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-LanguageTool"] = {
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/claire/.local/share/nvim/site/pack/packer/opt/vim-LanguageTool",
+    url = "https://github.com/dpelle/vim-LanguageTool"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["zen-mode.nvim"] = {
+  ["vim-hexokinase"] = {
     loaded = true,
-    path = "/home/claire/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
+    needs_bufread = false,
+    path = "/home/claire/.local/share/nvim/site/pack/packer/opt/vim-hexokinase",
+    url = "https://github.com/RRethy/vim-hexokinase"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: vim-LanguageTool
+time([[Setup for vim-LanguageTool]], true)
+try_loadstring("\27LJ\2\2y\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0K~/Documents/LanguageTool/LanguageTool-5.9/languagetool-commandline.jar\21languagetool_jar\6g\bvim\0", "setup", "vim-LanguageTool")
+time([[Setup for vim-LanguageTool]], false)
+time([[packadd for vim-LanguageTool]], true)
+vim.cmd [[packadd vim-LanguageTool]]
+time([[packadd for vim-LanguageTool]], false)
+-- Setup for: vim-hexokinase
+time([[Setup for vim-hexokinase]], true)
+try_loadstring("\27LJ\2\2E\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\fvirtual\28Hexokinase_highlighters\6g\bvim\0", "setup", "vim-hexokinase")
+time([[Setup for vim-hexokinase]], false)
+time([[packadd for vim-hexokinase]], true)
+vim.cmd [[packadd vim-hexokinase]]
+time([[packadd for vim-hexokinase]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

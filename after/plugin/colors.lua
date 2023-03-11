@@ -1,6 +1,4 @@
-require('dracula').setup({
-    disable_background = true
-})
+require('dracula')
 
 function ColorMyPencils(color)
 	color = color or "dracula"

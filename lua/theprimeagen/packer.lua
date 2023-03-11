@@ -2,7 +2,8 @@
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
-
+local packer_compiled = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
+vim.cmd('luafile' .. packer_compiled)
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -12,17 +13,11 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use({'~/Documents/dracula.nvim', as = 'dracula'})
---    use({
---        '~/Documents/rose-pine/',
---        as = 'rose-pine',
---        config = function()
---            vim.cmd('colorscheme rose-pine')
---        end
---    })
+
+    use({ 'cvhammond/dracula.nvim', as = 'dracula' })
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
-    use('nvim-treesitter/playground')
+--    use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
@@ -50,8 +45,34 @@ return require('packer').startup(function(use)
         }
     }
 
-    use("folke/zen-mode.nvim")
     use("github/copilot.vim")
     use("junegunn/goyo.vim")
-    use("junegunn/limelight.vim")
+
+    use({
+        "giusgad/pets.nvim",
+        requires = {
+            "giusgad/hologram.nvim",
+            "MunifTanjim/nui.nvim",
+        }
+    })
+
+    -- Grammar checker
+    use({
+        "dpelle/vim-LanguageTool",
+        setup = function()
+            vim.g.languagetool_jar = "~/Documents/LanguageTool/LanguageTool-5.9/languagetool-commandline.jar"
+        end,
+    })
+
+    -- email
+    use("https://git.sr.ht/~soywod/himalaya-vim")
+
+    -- RGB colors after hex
+    use({
+        "RRethy/vim-hexokinase",
+        run = 'make hexokinase',
+        setup = function()
+            vim.g.Hexokinase_highlighters = { "virtual" }
+        end,
+    })
 end)
