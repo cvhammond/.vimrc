@@ -112,7 +112,7 @@ _G.packer_plugins = {
   dracula = {
     loaded = true,
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/dracula",
-    url = "https://github.com/cvhammond/dracula.nvim"
+    url = "/home/claire/Documents/dracula.nvim/"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -128,11 +128,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/claire/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
-  },
-  ["himalaya-vim"] = {
-    loaded = true,
-    path = "/home/claire/.local/share/nvim/site/pack/packer/start/himalaya-vim",
-    url = "https://git.sr.ht/~soywod/himalaya-vim"
   },
   ["hologram.nvim"] = {
     loaded = true,

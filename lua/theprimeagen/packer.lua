@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use({ 'cvhammond/dracula.nvim', as = 'dracula' })
+    use({ '~/Documents/dracula.nvim/', as = 'dracula' })
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 --    use('nvim-treesitter/playground')
@@ -63,9 +63,6 @@ return require('packer').startup(function(use)
             vim.g.languagetool_jar = "~/Documents/LanguageTool/LanguageTool-5.9/languagetool-commandline.jar"
         end,
     })
-
-    -- email
-    use("https://git.sr.ht/~soywod/himalaya-vim")
 
     -- RGB colors after hex
     use({
